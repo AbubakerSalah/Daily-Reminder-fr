@@ -8,7 +8,7 @@ export default function App() {
   const fetchVerse = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.get("http://localhost:3000/api/verse"); // Fetch from backend
+      const response = await axios.get("https://daily-reminder-b-e.vercel.app"); 
       setVerse(response.data);
     } catch (error) {
       console.error("Error fetching verse", error);
