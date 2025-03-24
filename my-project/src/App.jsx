@@ -1,0 +1,77 @@
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+
+export default function App() {
+  const [verse, setVerse] = useState({ arabic: "", english: "" });
+  const [date, setDate] = useState("");
+
+  const fetchVerse = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.get("http://localhost:3000/api/verse"); // Fetch from backend
+      setVerse(response.data);
+    } catch (error) {
+      console.error("Error fetching verse", error);
+    }
+  };
+
+  function todaysDate() {
+    const today = new Date();
+    const day = today.getDate().toString().padStart(2, "0");
+    const monthIndex = today.getMonth();
+
+    const months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+
+    const monthName = months[monthIndex];
+
+    setDate(`${day}-${monthName}`);
+  }
+
+  useEffect(() => {
+    fetchVerse(); // Fetch verse on component mount
+    todaysDate();
+  }, []);
+
+  return (
+    <>
+      <div className="relative flex flex-col items-center justify-evenly h-screen bg-[url('/bg7.jpeg')] bg-cover bg-center bg-no-repeat sm:bg-cover px-2">
+        <div className="absolute left-4 top-4 text-[#E6D6C1] text-3xl font-bold">
+          {date}
+        </div>
+
+        <h1 className="text-3xl font-bold mb-4 text-[#E6D6C1]">
+          Daily Reminder
+        </h1>
+
+        <div className="flex flex-col items-center justify-center min-h-[150px]">
+          <p className="text-xl mb-2 text-[#E6D6C1] text-center">
+            {verse.arabic}
+          </p>
+          <p className="text-lg text-[#E6D6C1] text-center italic">
+            {verse.english}
+          </p>
+        </div>
+
+        <button
+          onClick={fetchVerse}
+          className="px-6 py-3 mt-4 bg-[#5C4537] text-[#e6d6c1] font-semibold rounded-md hover:bg-[#5c4537ee]"
+        >
+          Get Your Daily Reminder
+        </button>
+      </div>
+    </>
+  );
+}
