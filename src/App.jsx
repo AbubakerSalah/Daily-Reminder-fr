@@ -4,14 +4,26 @@ import axios from "axios";
 export default function App() {
   const [verse, setVerse] = useState({ arabic: "", english: "" });
   const [date, setDate] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  const fetchVerse = async (e) => {
-    e.preventDefault();
+  const fetchVerse = async (event) => {
+    if (event) event.preventDefault();
+    setLoading(true); // Set loading to true
+    setError(""); // Clear any previous errors
     try {
-      const response = await axios.get("https://daily-reminder-b-e.vercel.app"); 
+      const response = await axios.get(
+        process.env.NODE_ENV === "development"
+          ? "http://localhost:3000/api/verse"  // Local backend
+          : "https://daily-reminder-b-e.vercel.app/api/verse" // Deployed backend
+      );
       setVerse(response.data);
+      console.log(response.data)
     } catch (error) {
       console.error("Error fetching verse", error);
+      setError("Failed to fetch the verse. Please try again.");
+    } finally {
+      setLoading(false); 
     }
   };
 
@@ -48,7 +60,7 @@ export default function App() {
   return (
     <>
       <div className="relative flex flex-col items-center justify-evenly h-screen bg-[url('/bg7.jpeg')] bg-cover bg-center bg-no-repeat sm:bg-cover px-2">
-        <div className="absolute left-4 top-4 text-[#E6D6C1] text-3xl font-bold">
+        <div className="absolute left-4 top-4 text-[#E6D6C1] text-xl font-bold">
           {date}
         </div>
 
@@ -57,12 +69,20 @@ export default function App() {
         </h1>
 
         <div className="flex flex-col items-center justify-center min-h-[150px]">
-          <p className="text-xl mb-2 text-[#E6D6C1] text-center">
-            {verse.arabic}
-          </p>
-          <p className="text-lg text-[#E6D6C1] text-center italic">
-            {verse.english}
-          </p>
+          {loading ? (
+            <p className="text-xl mb-2 text-[#E6D6C1]">Loading...</p>
+          ) : error ? (
+            <p className="text-xl mb-2 text-[#E6D6C1]">{error}</p>
+          ) : (
+            <>
+              <p className="text-xl mb-2 text-[#E6D6C1] text-center">
+                {verse.arabic}
+              </p>
+              <p className="text-lg text-[#E6D6C1] text-center italic">
+                {verse.english}
+              </p>
+            </>
+          )}
         </div>
 
         <button
