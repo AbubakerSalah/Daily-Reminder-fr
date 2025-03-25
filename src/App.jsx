@@ -16,7 +16,7 @@ export default function App() {
         "https://daily-reminder-b-e.vercel.app/api/verse"
       );
       setVerse(response.data);
-      console.log(response.data);
+      //console.log(response.data);
     } catch (error) {
       console.error("Error fetching verse", error);
       setError("Failed to fetch the verse. Please try again.");
