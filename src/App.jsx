@@ -85,7 +85,7 @@ export default function App() {
 
         <button
           onClick={fetchVerse}
-          className="px-6 py-3 mt-4 bg-[#5C4537] font-english text-[#e6d6c1] font-semibold rounded-full border border-[#E6D6C1] hover:bg-[#5c4537ee] active:bg-[#5c45379b]"
+          className="px-6 py-3 mt-4 bg-[#5C4537] font-english text-[#e6d6c1] font-semibold rounded-full border border-[#a09788] hover:bg-[#5c4537ee] active:bg-[#5c45379b]"
         >
           Get Your Daily Reminder
         </button>
