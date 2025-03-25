@@ -73,7 +73,7 @@ export default function App() {
             <p className="text-xl mb-2 text-[#E6D6C1]">{error}</p>
           ) : (
             <>
-              <p className="text-xl mb-2 text-[#E6D6C1] text-center font-arabic">
+              <p className="text-2xl mb-2 text-[#E6D6C1] text-center font-arabic">
                 {verse.arabic}
               </p>
               <p className="text-lg text-[#E6D6C1] text-center italic font-english">
