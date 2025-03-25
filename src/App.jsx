@@ -57,26 +57,26 @@ export default function App() {
 
   return (
     <>
-      <div className="relative flex flex-col items-center justify-evenly h-screen bg-[url('/bg7.jpeg')] bg-cover bg-right bg-no-repeat sm:bg-cover overflow-hidden px-2">
+      <div className="relative flex flex-col items-center justify-center min-h-screen bg-[url('/bg7.jpeg')] bg-cover bg-center bg-no-repeat px-4 sm:px-2 overflow-hidden">
         <div className="absolute left-4 top-4 text-[#E6D6C1] text-xl font-english">
           {date}
         </div>
 
-        <h1 className="text-3xl font-bold mb-4 text-[#E6D6C1] font-english">
+        <h1 className="text-2xl sm:text-3xl font-bold text-[#E6D6C1] font-english">
           Daily Reminder
         </h1>
 
-        <div className="flex flex-col items-center justify-center min-h-[150px] shadow-sm pb-16">
+        <div className="flex flex-col items-center justify-center min-h-[150px] shadow-sm px-4 py-6">
           {loading ? (
-            <p className="text-xl mb-2 text-[#E6D6C1]">Loading...</p>
+            <p className="text-sm text-[#E6D6C1]">Loading...</p>
           ) : error ? (
-            <p className="text-xl mb-2 text-[#E6D6C1]">{error}</p>
+            <p className="text-xl text-[#E6D6C1]">{error}</p>
           ) : (
             <>
-              <p className="text-2xl mb-2 text-[#E6D6C1] text-center font-arabic">
+              <p className="text-xl sm:text-2xl text-[#E6D6C1] text-center font-arabic">
                 {verse.arabic}
               </p>
-              <p className="text-lg text-[#E6D6C1] text-center italic font-english">
+              <p className="text-md sm:text-lg text-[#E6D6C1] text-center italic font-english">
                 {verse.english}
               </p>
             </>
@@ -85,7 +85,7 @@ export default function App() {
 
         <button
           onClick={fetchVerse}
-          className="px-6 py-3 mt-4 bg-[#5C4537] font-english text-[#e6d6c1] font-semibold rounded-full border border-[#a09788] hover:bg-[#5c4537ee] active:bg-[#5c45379b]"
+          className="px-5 py-2 sm:px-6 sm:py-3 mt-4 bg-[#5C4537] font-english text-[#e6d6c1] font-semibold rounded-full border border-[#a09788] hover:bg-[#5c4537ee] active:bg-[#5c45379b]"
         >
           Get Your Daily Reminder
         </button>
