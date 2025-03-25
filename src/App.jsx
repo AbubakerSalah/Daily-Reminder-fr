@@ -67,7 +67,7 @@ export default function App() {
             Daily Reminder
           </h1>
 
-          <div className="flex flex-col items-center justify-center min-h-[150px] shadow-sm px-4 py-6">
+          <div className="flex flex-col items-center justify-center min-h-[150px] shadow-sm px-4 py-6 gap-2">
             {error ? (
               <p className="text-xl text-[#E6D6C1]">{error}</p>
             ) : (
