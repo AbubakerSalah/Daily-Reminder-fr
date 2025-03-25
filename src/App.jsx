@@ -12,18 +12,14 @@ export default function App() {
     setLoading(true); // Set loading to true
     setError(""); // Clear any previous errors
     try {
-      const response = await axios.get(
-        process.env.NODE_ENV === "development"
-          ? "http://localhost:3000/api/verse"  // Local backend
-          : "https://daily-reminder-b-e.vercel.app/api/verse" // Deployed backend
-      );
+      const response = await axios.get("https://daily-reminder-fr.vercel.app/api/verse");
       setVerse(response.data);
-      console.log(response.data)
+      console.log(response.data);
     } catch (error) {
       console.error("Error fetching verse", error);
       setError("Failed to fetch the verse. Please try again.");
     } finally {
-      setLoading(false); 
+      setLoading(false);
     }
   };
 
@@ -49,7 +45,7 @@ export default function App() {
 
     const monthName = months[monthIndex];
 
-    setDate(`${day}-${monthName}`);
+    setDate(`${day} ${monthName}`);
   }
 
   useEffect(() => {
@@ -59,8 +55,8 @@ export default function App() {
 
   return (
     <>
-      <div className="relative flex flex-col items-center justify-evenly h-screen bg-[url('/bg7.jpeg')] bg-cover bg-center bg-no-repeat sm:bg-cover px-2">
-        <div className="absolute left-4 top-4 text-[#E6D6C1] text-xl font-bold">
+      <div className="relative flex flex-col items-center justify-evenly h-screen bg-[url('/bg7.jpeg')] bg-cover bg-right bg-no-repeat sm:bg-cover px-2">
+        <div className="absolute left-4 top-4 text-[#E6D6C1] text-xl">
           {date}
         </div>
 
