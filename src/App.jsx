@@ -57,7 +57,7 @@ export default function App() {
 
   return (
     <>
-      <div className="relative flex flex-col items-center justify-center min-h-screen bg-[url('/bg7.jpeg')] bg-cover bg-center bg-no-repeat px-4 sm:px-2 overflow-hidden">
+      <div className="relative flex flex-col items-center justify-around min-h-screen bg-[url('/bg7.jpeg')] bg-cover bg-center bg-no-repeat px-4 sm:px-2 overflow-hidden">
         <div className="absolute left-4 top-4 text-[#E6D6C1] text-xl font-english">
           {date}
         </div>
@@ -68,7 +68,7 @@ export default function App() {
 
         <div className="flex flex-col items-center justify-center min-h-[150px] shadow-sm px-4 py-6">
           {loading ? (
-            <p className="text-sm text-[#E6D6C1]">Loading...</p>
+            <p className="text-xs text-[#E6D6C1]">Loading...</p>
           ) : error ? (
             <p className="text-xl text-[#E6D6C1]">{error}</p>
           ) : (
