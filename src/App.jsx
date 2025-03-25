@@ -62,7 +62,7 @@ export default function App() {
           {date}
         </div>
 
-        <div className="flex flex-col gap-16">
+        <div className="flex flex-col items-center gap-16">
           <h1 className="text-3xl font-bold text-[#E6D6C1] font-english">
             Daily Reminder
           </h1>
