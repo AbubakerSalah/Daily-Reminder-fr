@@ -9,10 +9,12 @@ export default function App() {
 
   const fetchVerse = async (event) => {
     if (event) event.preventDefault();
-    setLoading(true); // Set loading to true
-    setError(""); // Clear any previous errors
+    setLoading(true);
+    setError("");
     try {
-      const response = await axios.get("https://daily-reminder-fr.vercel.app/api/verse");
+      const response = await axios.get(
+        "https://daily-reminder-fr.vercel.app/api/verse"
+      );
       setVerse(response.data);
       console.log(response.data);
     } catch (error) {
@@ -49,7 +51,7 @@ export default function App() {
   }
 
   useEffect(() => {
-    fetchVerse(); // Fetch verse on component mount
+    fetchVerse();
     todaysDate();
   }, []);
 
