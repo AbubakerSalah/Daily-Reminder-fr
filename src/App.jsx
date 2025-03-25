@@ -57,7 +57,7 @@ export default function App() {
 
   return (
     <>
-      <div className="relative flex flex-col items-center justify-between  h-screen bg-[url('/bg7.jpeg')] bg-cover bg-right bg-no-repeat sm:bg-cover overflow-none px-2">
+      <div className="relative flex flex-col items-center justify-around h-screen bg-[url('/bg7.jpeg')] bg-cover bg-right bg-no-repeat sm:bg-cover overflow-none px-2">
         <div className="absolute left-4 top-4 text-[#E6D6C1] text-xl font-english">
           {date}
         </div>
