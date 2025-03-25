@@ -19,7 +19,7 @@ export default function App() {
       //console.log(response.data);
     } catch (error) {
       console.error("Error fetching verse", error);
-      setError("Failed to fetch the verse. Please try again.");
+      setError("Error. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -57,7 +57,7 @@ export default function App() {
 
   return (
     <>
-      <div className="relative flex flex-col items-center justify-center gap-16 min-h-screen bg-[url('/bg7.jpeg')] bg-cover bg-center bg-no-repeat px-4 sm:px-2 overflow-hidden">
+      <div className="relative flex flex-col items-center justify-evenly min-h-screen bg-[url('/bg7.jpeg')] bg-cover bg-center bg-no-repeat px-4 sm:px-2 overflow-hidden">
         <div className="absolute left-4 top-4 text-[#E6D6C1] text-xl font-english">
           {date}
         </div>
@@ -66,29 +66,29 @@ export default function App() {
           Daily Reminder
         </h1>
 
-        <div className="flex flex-col items-center justify-center min-h-[150px] shadow-sm px-4 py-6">
-          {loading ? (
-            <p className="text-xs text-[#E6D6C1]">Loading...</p>
-          ) : error ? (
-            <p className="text-xl text-[#E6D6C1]">{error}</p>
-          ) : (
-            <>
-              <p className="text-xl sm:text-2xl text-[#E6D6C1] text-center font-arabic">
-                {verse.arabic}
-              </p>
-              <p className="text-md sm:text-lg text-[#E6D6C1] text-center italic font-english">
-                {verse.english}
-              </p>
-            </>
-          )}
-        </div>
+        <div className="flex flex-col gap-16">
+          <div className="flex flex-col items-center justify-center min-h-[150px] shadow-sm px-4 py-6">
+            {error ? (
+              <p className="text-xl text-[#E6D6C1]">{error}</p>
+            ) : (
+              <>
+                <p className="text-xl sm:text-2xl text-[#E6D6C1] text-center font-arabic">
+                  {verse.arabic}
+                </p>
+                <p className="text-md sm:text-lg text-[#E6D6C1] text-center italic font-english">
+                  {verse.english}
+                </p>
+              </>
+            )}
+          </div>
 
-        <button
-          onClick={fetchVerse}
-          className="px-5 py-2 sm:px-6 sm:py-3 mt-4 bg-[#5C4537] font-english text-[#e6d6c1] font-semibold rounded-full border border-[#a09788] hover:bg-[#5c4537ee] active:bg-[#5c45379b]"
-        >
-          Get Your Daily Reminder
-        </button>
+          <button
+            onClick={fetchVerse}
+            className="px-5 py-2 sm:px-6 sm:py-3 mt-4 bg-[#5C4537] font-english text-[#e6d6c1] font-semibold rounded-full border border-[#a09788] hover:bg-[#5c4537ee] active:bg-[#5c45379b]"
+          >
+            Get Your Daily Reminder
+          </button>
+        </div>
       </div>
     </>
   );
