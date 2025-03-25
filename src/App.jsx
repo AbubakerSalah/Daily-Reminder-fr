@@ -7,52 +7,32 @@ export default function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const fetchVerse = async (event) => {
-    if (event) event.preventDefault();
+  // Fetch verse from the API
+  const fetchVerse = async () => {
     setLoading(true);
     setError("");
     try {
-      const response = await axios.get(
-        "https://daily-reminder-fr.vercel.app/api/verse"
-      );
+      const response = await axios.get("https://daily-reminder-fr.vercel.app/api/verse");
       setVerse(response.data);
-      console.log(response.data);
+      console.log((response.data))
     } catch (error) {
-      console.error("Error fetching verse", error);
-      setError("Failed to fetch the verse. Please try again.");
+      setError("Failed to fetch verse.");
     } finally {
       setLoading(false);
     }
   };
 
-  function todaysDate() {
+  // Set today's date
+  const getDate = () => {
     const today = new Date();
     const day = today.getDate().toString().padStart(2, "0");
-    const monthIndex = today.getMonth();
-
-    const months = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ];
-
-    const monthName = months[monthIndex];
-
-    setDate(`${day} ${monthName}`);
-  }
+    const month = today.toLocaleString("default", { month: "long" });
+    setDate(`${day} ${month}`);
+  };
 
   useEffect(() => {
     fetchVerse();
-    todaysDate();
+    getDate();
   }, []);
 
   return (
