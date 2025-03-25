@@ -66,7 +66,7 @@ export default function App() {
           Daily Reminder
         </h1>
 
-        <div className="flex flex-col items-center justify-center min-h-[150px] shadow-2xl">
+        <div className="flex flex-col items-center justify-center min-h-[150px] shadow-md">
           {loading ? (
             <p className="text-xl mb-2 text-[#E6D6C1]">Loading...</p>
           ) : error ? (
