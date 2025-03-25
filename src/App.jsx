@@ -63,12 +63,14 @@ export default function App() {
         </div>
 
         <div className="flex flex-col items-center gap-20">
-          <h1 className="text-3xl font-bold text-[#E6D6C1] font-english">
+          <h1 className="text-3xl font-bold text-[#E6D6C1] mb-2 font-english">
             Daily Reminder
           </h1>
 
           <div className="flex flex-col items-center justify-center min-h-[150px] shadow-sm px-4 py-6 gap-2">
-            {error ? (
+            {loading ? (
+              <div className="w-10 h-10 border-4 border-[#E6D6C1] border-t-transparent rounded-full animate-spin"></div>
+            ) : error ? (
               <p className="text-xl text-[#E6D6C1]">{error}</p>
             ) : (
               <>
