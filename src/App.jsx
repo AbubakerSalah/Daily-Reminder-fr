@@ -57,12 +57,12 @@ export default function App() {
 
   return (
     <>
-      <div className="relative flex flex-col items-center justify-around min-h-screen bg-[url('/bg7.jpeg')] bg-cover bg-center bg-no-repeat px-4 sm:px-2 overflow-hidden">
+      <div className="relative flex flex-col items-center justify-center gap-16 min-h-screen bg-[url('/bg7.jpeg')] bg-cover bg-center bg-no-repeat px-4 sm:px-2 overflow-hidden">
         <div className="absolute left-4 top-4 text-[#E6D6C1] text-xl font-english">
           {date}
         </div>
 
-        <h1 className="text-2xl sm:text-3xl font-bold text-[#E6D6C1] font-english">
+        <h1 className="text-3xl font-bold text-[#E6D6C1] font-english">
           Daily Reminder
         </h1>
 
