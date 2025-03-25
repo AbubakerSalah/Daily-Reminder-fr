@@ -57,26 +57,26 @@ export default function App() {
 
   return (
     <>
-      <div className="relative flex flex-col items-center justify-evenly h-screen bg-[url('/bg7.jpeg')] bg-cover bg-right bg-no-repeat sm:bg-cover px-2">
-        <div className="absolute left-4 top-4 text-[#E6D6C1] text-xl">
+      <div className="relative flex flex-col items-center justify-evenly  h-screen bg-[url('/bg7.jpeg')] bg-cover bg-right bg-no-repeat sm:bg-cover px-2">
+        <div className="absolute left-4 top-4 text-[#E6D6C1] text-xl font-english">
           {date}
         </div>
 
-        <h1 className="text-3xl font-bold mb-4 text-[#E6D6C1]">
+        <h1 className="text-3xl font-bold mb-4 text-[#E6D6C1] font-english">
           Daily Reminder
         </h1>
 
-        <div className="flex flex-col items-center justify-center min-h-[150px]">
+        <div className="flex flex-col items-center justify-center min-h-[150px] shadow-2xl">
           {loading ? (
             <p className="text-xl mb-2 text-[#E6D6C1]">Loading...</p>
           ) : error ? (
             <p className="text-xl mb-2 text-[#E6D6C1]">{error}</p>
           ) : (
             <>
-              <p className="text-xl mb-2 text-[#E6D6C1] text-center">
+              <p className="text-xl mb-2 text-[#E6D6C1] text-center font-arabic">
                 {verse.arabic}
               </p>
-              <p className="text-lg text-[#E6D6C1] text-center italic">
+              <p className="text-lg text-[#E6D6C1] text-center italic font-english">
                 {verse.english}
               </p>
             </>
@@ -85,7 +85,7 @@ export default function App() {
 
         <button
           onClick={fetchVerse}
-          className="px-6 py-3 mt-4 bg-[#5C4537] text-[#e6d6c1] font-semibold rounded-md hover:bg-[#5c4537ee]"
+          className="px-6 py-3 mt-4 bg-[#5C4537] font-english text-[#e6d6c1] font-semibold rounded-full border border-[#E6D6C1] hover:bg-[#5c4537ee]"
         >
           Get Your Daily Reminder
         </button>
