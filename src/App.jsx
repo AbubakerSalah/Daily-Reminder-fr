@@ -57,7 +57,7 @@ export default function App() {
 
   return (
     <>
-      <div className="relative flex flex-col items-center justify-evenly bg-[#000111] min-h-screen bg-[url('/bg7.jpeg')] bg-cen bg-center bg-no-repeat px-4 sm:px-2 overflow-hidden">
+      <div className="relative flex flex-col items-center justify-evenly bg-[#000111] min-h-screen bg-[url('/bg7.jpeg')] bg-center bg-no-repeat px-4 sm:px-2 ">
         <div className="absolute left-6 top-6 text-[#E6D6C1] text-xl font-english">
           {date}
         </div>
