@@ -1,12 +1,37 @@
-# React + Vite
+# 🌙 Daily Reminder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A beautifully simple full-stack web app that fetches and displays a new Quran verse (ayah) every day in Arabic and English. Designed to offer spiritual reminders in an elegant, calming interface.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📸 Demo
 
-## Expanding the ESLint configuration
+Live app: [daily-reminder.vercel.app](https://daily-reminder.vercel.app)  
+API: [daily-reminder-b-e.vercel.app/api/verse](https://daily-reminder-b-e.vercel.app/api/verse)
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## ✨ Features
+
+- 🌐 Fetches daily Quranic verses (Arabic + English)
+- 📅 Displays today’s date
+- 🔁 Refresh to get another verse
+- 📱 Fully responsive design
+- 🎨 Clean, minimal UI with a calm color scheme
+
+---
+
+## 🛠 Tech Stack
+
+### Frontend
+- **React** 
+- **Tailwind CSS** 
+- **Axios** – HTTP client for fetching data
+- **Vercel** – Frontend deployment
+
+### Backend (API)
+- **Node.js + Express** – Simple REST API
+- **Quran API** – (Internal or third-party source)
+- **Vercel Functions** – Serverless deployment
+
+---
